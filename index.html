@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  
+  <script>
+        //console.log("hello")
+        //let variables = rock, paper, scissors 
+        function getComputerChoice()
+        {
+            const choices = ["rock", "paper", "scissors"];
+            const RanindexVal = [Math.floor(Math.random() * choices.length)];
+
+        }
+        console.log(getComputerChoice());
+
+
+        function getHumanChoice()
+        {
+            const choice = prompt("Enter your choice: Rock, Paper, or Scissors").toLowerCase();
+            while(!["rock","paper","scissors"].includes(choice))
+              {
+                choice = prompt("Choice is not valid, enter rock paper or scissors, how do you not know how to play rock paper scissors. you suck");
+              }
+            return choice; 
+        }
+        console.log(getHumanChoice());
+    let yourScore = 0;
+    let compScore = 0;
+
+function playTheRound(yourChoice, compChoice)
+  {
+    const winMessages = {
+        rock: "scissors",
+        paper: "rock",
+        scissors: "paper"
+      };
+
+    if (yourChoice === compChoice)
+    {
+      console.log("its a tie :/")
+    }
+    else if (winMessages[yourChoice] === compChoice)
+    {
+      console.log("you win! " + (yourChoice) + "beats " + compChoice + "!!!! :))))))  " );
+    }
+    else
+    {
+      console.log("Awwww you lost :((((( " + compChoice + "beats " +  yourChoice);
+      compScore++;
+    }
+  }
+
+    function Play() 
+      {
+        compScore = 0;
+        yourScore = 0;
+
+        for(let i = 0; i < 5; i++)
+          {
+            const mySelection = getHumanChoice();
+            const compSelection = getComputerChoice();
+            playTheRound(mySelection, compSelection);
+            
+          }
+      console.log("final score: " +  "Human: " + (yourScore) + " computer: " + compScore + " ");
+
+
+        if (yourScore > compScore) 
+        {
+          console.log("Congrats! you won overall");
+          
+        }
+        else if (compScore > yourScore)
+        {
+          console.log("you lost to the computer");
+        }
+        else
+        {
+          console.log("aw man you tied ");
+        }
+
+        
+      }
+    Play();
+
+  </script>
+</body>
+
+</html>
